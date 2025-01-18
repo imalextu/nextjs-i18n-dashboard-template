@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import React, { Suspense } from "react";
 
 import Spinner from "@/components/Spinner";

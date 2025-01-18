@@ -73,10 +73,10 @@ export function Sidebar({ onNavigate }: SidebarProps) {
       <div className="flex h-14 items-center px-4">
         <img 
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot-fH6R9rdbLCdLcoZ1ms8ybzsFw5PF6s.png" 
-          alt="WebStack Logo" 
+          alt="TargetPrompt Logo" 
           className="h-8 w-8"
         />
-        <span className="ml-2 text-lg font-semibold">WebStack</span>
+        <span className="ml-2 text-lg font-semibold">TargetPrompt</span>
       </div>
       <nav className="flex-1 space-y-1 px-2 py-4 overflow-y-auto">
         {menuItems.map((item) => {

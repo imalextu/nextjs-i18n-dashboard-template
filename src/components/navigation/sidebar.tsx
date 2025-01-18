@@ -7,6 +7,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Laptop, MessageSquare, Palette, PenTool, Settings, Users, Wrench, BookOpen, Building2, ChevronRight, Image, Music, FileText, Video, Brush, Package } from 'lucide-react'
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useNavigationStore } from "@/store/navigation"
 
 type SubItem = {
   name: string
@@ -52,6 +53,7 @@ interface SidebarProps {
 export function Sidebar({ onNavigate }: SidebarProps) {
   const pathname = usePathname()
   const [openItems, setOpenItems] = useState<string[]>([])
+  const { menuItems, setActiveSection } = useNavigationStore()
 
   const toggleItem = (itemName: string) => {
     setOpenItems(prev => 
@@ -61,8 +63,9 @@ export function Sidebar({ onNavigate }: SidebarProps) {
     )
   }
 
-  const handleNavigation = (href: string) => {
-    onNavigate(href)
+  const handleNavigation = (sectionId: string) => {
+    setActiveSection(sectionId)
+    onNavigate(sectionId)
   }
 
   return (
@@ -76,16 +79,16 @@ export function Sidebar({ onNavigate }: SidebarProps) {
         <span className="ml-2 text-lg font-semibold">WebStack</span>
       </div>
       <nav className="flex-1 space-y-1 px-2 py-4 overflow-y-auto">
-        {sidebarItems.map((item) => {
+        {menuItems.map((item) => {
           const Icon = item.icon
-          const isOpen = openItems.includes(item.name)
+          const isOpen = openItems.includes(item.title)
 
-          if (item.subItems) {
+          if (item.submenu) {
             return (
               <Collapsible 
-                key={item.name} 
+                key={item.id} 
                 open={isOpen}
-                onOpenChange={() => toggleItem(item.name)}
+                onOpenChange={() => toggleItem(item.title)}
               >
                 <CollapsibleTrigger asChild>
                   <Button
@@ -94,33 +97,31 @@ export function Sidebar({ onNavigate }: SidebarProps) {
                       "w-full justify-start text-zinc-400 hover:text-white",
                       isOpen && "bg-zinc-800 text-white"
                     )}
-                    onClick={() => handleNavigation(item.href)}
+                    onClick={() => handleNavigation(item.id)}
                   >
                     <Icon className="mr-2 h-5 w-5" />
-                    {item.name}
-                    <ChevronRight 
-                      className={cn(
-                        "ml-auto h-4 w-4 transition-transform duration-200",
-                        isOpen && "rotate-90"
-                      )} 
-                    />
+                    {item.title}
+                    <ChevronRight className={cn(
+                      "ml-auto h-4 w-4 transition-transform duration-200",
+                      isOpen && "rotate-90"
+                    )} />
                   </Button>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="pl-4 space-y-1">
-                  {item.subItems.map((subItem) => {
+                  {item.submenu.map((subItem) => {
                     const SubIcon = subItem.icon
                     return (
                       <Button
-                        key={subItem.href}
+                        key={subItem.id}
                         variant="ghost"
                         className={cn(
                           "w-full justify-start text-sm text-zinc-400 hover:text-white",
-                          pathname === subItem.href && "bg-zinc-800 text-white"
+                          pathname === subItem.id && "bg-zinc-800 text-white"
                         )}
-                        onClick={() => handleNavigation(subItem.href)}
+                        onClick={() => handleNavigation(subItem.id)}
                       >
                         <SubIcon className="mr-2 h-4 w-4" />
-                        {subItem.name}
+                        {subItem.title}
                       </Button>
                     )
                   })}
@@ -131,16 +132,16 @@ export function Sidebar({ onNavigate }: SidebarProps) {
 
           return (
             <Button
-              key={item.name}
+              key={item.id}
               variant="ghost"
               className={cn(
                 "w-full justify-start text-zinc-400 hover:text-white",
-                pathname === item.href && "bg-zinc-800 text-white"
+                pathname === item.id && "bg-zinc-800 text-white"
               )}
-              onClick={() => handleNavigation(item.href)}
+              onClick={() => handleNavigation(item.id)}
             >
               <Icon className="mr-2 h-5 w-5" />
-              {item.name}
+              {item.title}
             </Button>
           )
         })}

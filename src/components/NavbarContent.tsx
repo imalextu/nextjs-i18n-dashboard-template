@@ -122,20 +122,24 @@ export default function NavbarContent({ user, locale, messages }: Props) {
 
               {langSwitcherMenuOpen && (
                 <Menu ref={langSwitcherMenuRef} aria-labelledby="lang-switcher-menu-button">
-                  <MenuItem href={`/de/${pathname.split("/").slice(2).join("/")}`} active={locale === "de"}>
+                  {/* <MenuItem href={`/de/${pathname.split("/").slice(2).join("/")}`} active={locale === "de"}>
                     <FormattedMessage id="common.language-switcher" values={{ locale: "de" }} />
+                  </MenuItem> */}
+                  <MenuItem href={`/zh/${pathname.split("/").slice(2).join("/")}`} active={locale === "zh"}>
+                    <FormattedMessage id="common.language-switcher" values={{ locale: "zh" }} />
                   </MenuItem>
+
                   <MenuItem href={`/en/${pathname.split("/").slice(2).join("/")}`} active={locale === "en"}>
                     <FormattedMessage id="common.language-switcher" values={{ locale: "en" }} />
                   </MenuItem>
-                  <MenuItem href={`/fr/${pathname.split("/").slice(2).join("/")}`} active={locale === "fr"}>
+                  {/* <MenuItem href={`/fr/${pathname.split("/").slice(2).join("/")}`} active={locale === "fr"}>
                     <FormattedMessage id="common.language-switcher" values={{ locale: "fr" }} />
-                  </MenuItem>
+                  </MenuItem> */}
                 </Menu>
               )}
             </div>
 
-            <div className="relative mx-1">
+            {/* <div className="relative mx-1">
               <button
                 type="button"
                 className="rounded-full p-1 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-600"
@@ -155,9 +159,9 @@ export default function NavbarContent({ user, locale, messages }: Props) {
                   />
                 </svg>
               </button>
-            </div>
+            </div> */}
 
-            <div className="relative mx-1">
+            {/* <div className="relative mx-1">
               <button
                 type="button"
                 className="rounded-full p-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-600"
@@ -182,7 +186,7 @@ export default function NavbarContent({ user, locale, messages }: Props) {
                   </MenuItem>
                 </Menu>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>

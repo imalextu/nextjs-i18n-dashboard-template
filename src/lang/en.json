@@ -1,5 +1,5 @@
 {
-  "common.language-switcher": "{locale, select, en {English} de {Deutsch} fr {Français} other {Unknown}}",
+  "common.language-switcher": "{locale, select, en {English} de {Deutsch} fr {Français} zh {中文} other {未知}}",
   "common.navigation.discover": "Discover",
   "common.navigation.home": "Home",
   "common.navigation.reports": "Reports",
@@ -11,5 +11,23 @@
   "page.home.activities": "Activities",
   "page.home.activity": "{action, select, COMMENT {Commented task} ACTIVATE {Activated job} STOP {Stopped job} other {Unkown activity}}",
   "page.home.team": "Team",
-  "page.reports.no-data": "No reports have been found."
+  "page.reports.no-data": "No reports have been found.",
+  "nav.categories.recommended": "Recommended",
+  "nav.categories.information": "Information",
+  "nav.categories.inspiration": "Inspiration",
+  "nav.categories.resources": "Resources",
+  "nav.categories.tools": "Design Tools",
+  "nav.categories.tutorials": "Tutorials",
+  "nav.categories.teams": "UED Teams",
+  "nav.subcategories.product": "Product",
+  "nav.subcategories.ui_inspiration": "UI Inspiration",
+  "nav.subcategories.web_inspiration": "Web Inspiration",
+  "nav.subcategories.icons": "Icons",
+  "nav.subcategories.logo": "Logo Design",
+  "nav.subcategories.graphics": "Graphic Design",
+  "nav.subcategories.ui": "UI Design",
+  "nav.subcategories.fonts": "Fonts",
+  "nav.subcategories.photos": "Free Photos",
+  "nav.about": "About",
+  "nav.github": "GitHub"
 }

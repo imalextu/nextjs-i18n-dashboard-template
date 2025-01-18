@@ -25,11 +25,11 @@ export default async function Root({ params, children }: Props) {
   return (
     <html lang={params.lang}>
       <body className="relative min-h-screen overflow-y-auto bg-gray-50">
-        <Navbar locale={params.lang} user={user} />
+        <Navbar locale={params.lang} user={user} />s
 
         <Content>{children}</Content>
 
-        <Sidebar locale={params.lang} />
+        {/* <Sidebar locale={params.lang} /> */}
       </body>
     </html>
   );

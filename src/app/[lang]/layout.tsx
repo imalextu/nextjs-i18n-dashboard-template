@@ -1,12 +1,7 @@
-import Navbar from "@/components/Navbar";
 import Content from "@/components/Content";
-import Sidebar from "@/components/Sidebar";
-
 import { getUser } from "@/lib/data";
 import { Locale } from "@/lib/definitions";
-
 import { i18n } from "../../../i18n-config";
-
 import "@/app/globals.css";
 
 export const metadata = {
@@ -25,11 +20,7 @@ export default async function Root({ params, children }: Props) {
   return (
     <html lang={params.lang}>
       <body className="relative min-h-screen overflow-y-auto bg-gray-50">
-        <Navbar locale={params.lang} user={user} />s
-
         <Content>{children}</Content>
-
-        {/* <Sidebar locale={params.lang} /> */}
       </body>
     </html>
   );

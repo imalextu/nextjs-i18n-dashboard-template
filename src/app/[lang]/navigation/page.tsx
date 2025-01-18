@@ -1,5 +1,7 @@
 "use client"
 
+export const runtime = 'edge'
+
 import { useRef } from "react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sidebar } from "@/components/navigation/sidebar"
